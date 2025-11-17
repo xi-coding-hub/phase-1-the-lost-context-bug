@@ -56,9 +56,8 @@ const printCardBind = function () {
 const printCardClosure = function () {
   console.log(this.frontContent);
   console.log(this.insideContent);
-  const outerContext = this; 
-  this.signatories.forEach(function (signatory) {
-    const message = `${outerContext.closing[signatory]}, ${signatory}`;
+  this.signatories.forEach(signatory => {
+    const message = `${this.closing[signatory]}, ${signatory}`;
    
     console.log("closure way: ",message);
   });
@@ -67,4 +66,4 @@ const printCardClosure = function () {
 // printCard.call(messageConfig);
 printCardThis.call(messageConfig);
 printCardBind.call(messageConfig);
-// printCardClosure.call(messageConfig);
+printCardClosure.call(messageConfig);
